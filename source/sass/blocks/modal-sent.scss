@@ -1,0 +1,36 @@
+.modal-sent {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 43px;
+  width: 728px;
+  height: 444px;
+  color: $modal-text;
+  background-color: $modal-background;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-sent__button-close {
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-color: $modal-background;
+  background-image: url("../img/modal-close.svg");
+  right: 18px;
+  top: 18px;
+  border: 0;
+  cursor: pointer;
+}
+
+.modal-sent__text {
+  width: 400px;
+  text-align: center;
+}

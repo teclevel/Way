@@ -1,0 +1,151 @@
+.form {
+  max-width: $width-center;
+  margin: 0 auto;
+  margin-bottom: 170px;
+  color: $black;
+  font-weight: 400;
+  background-image: url("../img/form-background.jpg");
+  background-repeat: no-repeat;
+  min-height: 456px;
+
+
+  @media (min-resolution: $dpi), (min-resolution: $dppx) {
+    background-image: url("../img/form-background@2x.jpg");
+  }
+
+  @media (max-width: $tablet-width) {
+    background-size: cover;
+    padding: 70px 55px 75px;
+    margin-bottom: 70px;
+  }
+
+  @media (max-width: $mobile-width) {
+    background-image: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+}
+
+.form__form {
+  max-width: 658px;
+  min-height: 315px;
+  background: $white;
+  box-shadow: 0 4px 30px $shadow;
+  border-radius: 5px;
+  padding: 50px;
+  margin-left: 43%;
+  margin-top: 6%;
+  display: inline-block;
+
+  @media (max-width: $tablet-width) {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  @media (max-width: $mobile-width) {
+    background-color: $modal-background;
+    padding: 50px 0;
+  }
+}
+
+.form__title {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 32px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.form__inputs-container {
+  border: none;
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+  padding: 0;
+  margin: 0;
+
+  @media (max-width: $mobile-width) {
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+  }
+}
+
+.form__text {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form__input {
+  font-size: 14px;
+  line-height: 17px;
+  max-width: 288px;
+  min-height: 50px;
+  border-color: $dark-03;
+  cursor: pointer;
+  flex-grow: 1;
+
+  &::-moz-placeholder {
+    color: inherit;
+  }
+
+  &::placeholder {
+    color: inherit;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: 288px;
+  }
+}
+
+// .form__tel {
+//   margin-right: 15px;
+//   margin-bottom: 10px;
+//   padding-left: 27px;
+// }
+
+// .form__tel-label {
+//   position: relative;
+
+//   &::before {
+//     position: absolute;
+//     display: contents;
+//     content: "*";
+//     color: $red;
+//     width: 10px;
+//     height: 10px;
+//     top: 10px;
+//     left: 10px;
+//   }
+// }
+
+
+.form__email {
+  padding-left: 15px;
+}
+
+.form__button {
+  text-transform: uppercase;
+  color: $white;
+  background-color: $red;
+  width: 250px;
+  min-height: 50px;
+  border: none;
+  cursor: pointer;
+  margin: 27px auto 0;
+  display: block;
+
+  &:hover {
+    background-color: $orange;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: 288px;
+    margin-top: 20px;
+  }
+}

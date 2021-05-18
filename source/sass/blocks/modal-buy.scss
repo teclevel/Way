@@ -1,0 +1,88 @@
+.modal-buy {
+  width: 728px;
+  height: 444px;
+  font-weight: 400;
+  background-image: url("../img/modal-image.jpg");
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.modal-buy__form {
+  position: relative;
+  background: $modal-background;
+  padding: 60px;
+  margin-left: 337px;
+  height: 100%;
+}
+
+.modal-buy__title {
+  font-weight: 600;
+  text-align: center;
+  font-size: 25px;
+  line-height: 43px;
+  margin-bottom: 50px;
+  color: $modal-text;
+}
+
+.modal-buy__input {
+  font-size: 14px;
+  line-height: 17px;
+  width: 100%;
+  min-height: 50px;
+  border-color: $dark-03;
+  cursor: pointer;
+  color: $modal-text;
+
+  &::-moz-placeholder {
+    color: inherit;
+  }
+
+  &::placeholder {
+    color: inherit;
+  }
+}
+
+.modal-buy__tel {
+  margin-right: 15px;
+  margin-bottom: 20px;
+  padding-left: 27px;
+}
+
+.modal-buy__email {
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+
+.modal-buy__submit {
+  text-transform: uppercase;
+  color: $white;
+  background-color: $red;
+  width: 176px;
+  min-height: 50px;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+
+  &:hover {
+    background-color: $orange;
+  }
+}
+
+.modal-buy__button-close {
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-color: $modal-background;
+  background-image: url("../img/modal-close.svg");
+  right: 18px;
+  top: 18px;
+  border: 0;
+  cursor: pointer;
+}

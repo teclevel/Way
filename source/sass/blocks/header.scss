@@ -1,0 +1,228 @@
+.header {
+  position: relative;
+  max-width: $width-center;
+  margin: 0 auto;
+  min-height: 99px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: $tablet-width) {
+    min-height: 50px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.header__nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.header__link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  padding: 10px 0;
+
+  @media (max-width: $tablet-width) {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    color: $modal-text;
+
+    &::after {
+      @media (max-width: $tablet-width) {
+        content: "";
+        width: 20px;
+        height: 20px;
+        left: 242px;
+        top: 12px;
+        background-image: url("../img/header-nav-arrow.svg");
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &:hover {
+    color: $red;
+  }
+}
+
+.header__link-tel {
+  position: relative;
+  color: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 32px;
+  padding-left: 50px;
+  margin-left: 40px;
+  min-width: 230px;
+
+  &:hover {
+    color: $red;
+  }
+
+  &:hover::before {
+    background-position: 0 0;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 3px;
+    left: 12px;
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/phone-sprite.svg");
+    background-position: 0 -36px;
+    background-repeat: no-repeat;
+  }
+
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.header__list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: 30px;
+
+  @media (max-width: $tablet-width) {
+    display: none;
+    padding: 0;
+  }
+}
+
+.header__item:last-child {
+  flex-grow: 1;
+}
+
+.header__toggle-menu {
+  display: none;
+
+  @media (max-width: $tablet-width) {
+    display: block;
+    position: absolute;
+    width: 72px;
+    height: 50px;
+    top: 1px;
+    right: 0;
+    background-color: $red;
+    background-image: url("../img/header-menu.svg");
+    background-repeat: no-repeat;
+    background-position: 20px 10px;
+    border: 0;
+    cursor: pointer;
+  }
+}
+
+.header--no-js {
+  @media (max-width: $tablet-width) {
+    display: block;
+    padding: 0;
+  }
+}
+
+.header--no-js .header__nav {
+  @media (max-width: $tablet-width) {
+    display: block;
+    padding-top: 16px;
+  }
+}
+
+.header--no-js .header__list {
+  @media (max-width: $tablet-width) {
+    display: block;
+    background-color: $modal-background;
+    margin: 16px 0;
+  }
+}
+
+.header__open-menu .header__list {
+  @media (max-width: $tablet-width) {
+    display: block;
+    margin: 0;
+    padding-top: 84px;
+    position: absolute;
+    width: 100%;
+    min-height: 518px;
+    z-index: 10;
+    background-color: $white;
+    left: 0;
+    top: 35px;
+  }
+}
+
+.header--no-js .header__item {
+  @media (max-width: $tablet-width) {
+    padding: 10px 0;
+    border-bottom: 60px solid $white;
+  }
+}
+
+.header__open-menu .header__item {
+  @media (max-width: $tablet-width) {
+    padding: 10px 0;
+    margin-bottom: 30px;
+    background-color: $modal-background;
+  }
+}
+
+.header--no-js .header__link {
+  @media (max-width: $tablet-width) {
+    position: relative;
+    display: block;
+    padding: 10px 16px;
+  }
+
+  &::after {
+    @media (max-width: $tablet-width) {
+      position: absolute;
+    }
+  }
+}
+
+.header__open-menu .header__link {
+  @media (max-width: $tablet-width) {
+    position: relative;
+    display: block;
+    padding: 10px 16px;
+  }
+
+  &::after {
+    @media (max-width: $tablet-width) {
+      position: absolute;
+    }
+  }
+}
+
+.header--no-js .header__toggle-menu {
+  display: none;
+}
+
+.header__open-menu .header__toggle-menu {
+  display: none;
+
+  @media (max-width: $tablet-width) {
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: $white;
+    background-image: url("../img/modal-close.svg");
+    background-position: 0 0;
+    right: 18px;
+    top: 10px;
+    border: 0;
+    cursor: pointer;
+    z-index: 30;
+  }
+}
