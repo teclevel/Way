@@ -8,9 +8,14 @@
   align-items: center;
 
   @media (max-width: $tablet-width) {
+    position: fixed;
+    background-color: $white;
+    z-index: 10;
     min-height: 50px;
     margin: 0;
-    padding: 0;
+    top: 0;
+    right: 0;
+    left: 0;
   }
 }
 
@@ -19,6 +24,10 @@
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
+
+  @media (max-width: $tablet-width) {
+    padding: 0 10px;
+  }
 }
 
 .header__link {
@@ -114,7 +123,7 @@
     width: 72px;
     height: 50px;
     top: 1px;
-    right: 0;
+    right: 8px;
     background-color: $red;
     background-image: url("../img/header-menu.svg");
     background-repeat: no-repeat;

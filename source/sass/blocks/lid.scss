@@ -33,6 +33,10 @@
 .lid__container {
   max-width: $width-center;
   margin: 0 auto;
+
+  @media (max-width: $tablet-width) {
+    padding: 50px 0 0;
+  }
 }
 
 .lid__wrapper {
