@@ -3,13 +3,7 @@ import './buy.js';
 
 const pageHeader = document.querySelector('.header');
 const toggleMenu = document.querySelector('.header__toggle-menu');
-
-// const buttonSubmit = popupBuy.querySelector('.modal-buy__submit');
-// const form = popupBuy.querySelector('.modal-buy__form');
-// const userTel = popupBuy.querySelector('.modal-buy__tel');
-// const userEmail = popupBuy.querySelector('.modal-buy__email');
-
-
+const linkItemMenu = document.querySelectorAll('.header__link');
 
 
 pageHeader.classList.remove('header--no-js');
@@ -21,6 +15,31 @@ toggleMenu.addEventListener('click', () => {
     pageHeader.classList.add('header__open-menu');
   }
 });
+
+
+for (let item of linkItemMenu) {
+  item.addEventListener('click', () => {
+    pageHeader.classList.remove('header__open-menu');
+  })
+};
+
+// linkItemMenu.forEach(element => {
+//   element.addEventListener('click', () => {
+//     pageHeader.classList.remove('header__open-menu');
+
+//     window.onscroll = function () {
+//       return window.pageYOffset;
+//     }
+
+//     // console.log(beginPoint);//500
+//     // let beginPoint;
+
+//     // event.preventDefault();
+//     // console.log(beginPoint, scrollDown);
+//   });
+// });
+
+
 
 
 
