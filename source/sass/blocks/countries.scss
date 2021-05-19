@@ -20,6 +20,7 @@
 
   @media (max-width: $mobile-width) {
     padding-top: 26px;
+    overflow: hidden;
   }
 }
 
@@ -47,7 +48,8 @@
   @media (max-width: $mobile-width) {
     padding: 0 16px;
     column-gap: 95px;
-    justify-content: center;
+    justify-content: start;
+    overflow: scroll;
   }
 }
 
@@ -103,6 +105,10 @@
 .countries__tabs-item.is-active {
   display: grid;
   grid-template-columns: (1fr 430px 1fr);
+
+  @media (max-width: $mobile-width) {
+    display: block;
+  }
 }
 
 .countries__tab-description {
