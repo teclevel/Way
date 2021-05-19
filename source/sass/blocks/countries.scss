@@ -66,10 +66,13 @@
   text-decoration: none;
   color: inherit;
   padding: 10px 0;
+
+  &:hover {
+    color: $red;
+  }
 }
 
-.countries__nav-link.is-active,
-&:hover {
+.countries__nav-link.is-active {
   color: $red;
 }
 
