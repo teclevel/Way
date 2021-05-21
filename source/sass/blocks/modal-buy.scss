@@ -1,15 +1,25 @@
 .modal-buy {
-  width: 728px;
-  height: 444px;
-  font-weight: 400;
-  background-image: url("../img/modal-image.jpg");
-  background-repeat: no-repeat;
+  width: 100%;
+  overflow: hidden;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   margin: auto;
+  background-color: $black-05;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-buy__wrapper {
+  font-weight: 400;
+  width: 728px;
+  max-width: 100%;
+  height: 444px;
+  background-image: url("../img/modal-image.jpg");
+  background-repeat: no-repeat;
 }
 
 .modal-buy__form {

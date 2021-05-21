@@ -316,15 +316,18 @@
     </section>
   </footer>
 
-  <div class="modal-buy visually-hidden">
-    <form class="modal-buy__form" action="https://echo.htmlacademy.ru" method="post">
-      <h3 class="modal-buy__title">Купить тур</h3>
-      <input class="modal-buy__tel modal-buy__input" type="tel" name="user-tel" id="modal-buy__tel" placeholder="+7 Введите 10 цифр номера" required="">
-      <input class="modal-buy__email modal-buy__input" type="email" name="user-email" id="modal-buy__email" placeholder="E-mail" required="">
-      <button class="modal-buy__submit" type="submit">Отправить</button>
-      <button class="modal-buy__button-close" type="button" aria-label="Закрыть"></button>
-    </form>
-  </div>
+  <section class="modal-buy visually-hidden">
+    <div class="modal-buy__wrapper">
+      <form class="modal-buy__form" action="https://echo.htmlacademy.ru" method="post">
+        <h3 class="modal-buy__title">Купить тур</h3>
+        <input class="modal-buy__tel modal-buy__input" type="tel" name="user-tel" id="modal-buy__tel" placeholder="+7 Введите 10 цифр номера" required="">
+        <input class="modal-buy__email modal-buy__input" type="email" name="user-email" id="modal-buy__email" placeholder="E-mail" required="">
+        <button class="modal-buy__submit" type="submit">Отправить</button>
+        <button class="modal-buy__button-close" type="button" aria-label="Закрыть"></button>
+      </form>
+    </div>
+  </section>
+
   <div class="modal-sent visually-hidden">
     <p class="modal-sent__text">Форма успешно отправлена, спасибо! :)</p>
     <button class="modal-sent__button-close" type="button" aria-label="Закрыть"></button>
