@@ -1,6 +1,5 @@
 .modal-buy {
   width: 100%;
-  overflow: hidden;
   position: fixed;
   top: 0;
   right: 0;
@@ -11,6 +10,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+
+  @media (max-width: $mobile-width) {
+    display: none;
+  }
 }
 
 .modal-buy__wrapper {
