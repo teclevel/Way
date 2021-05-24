@@ -77,3 +77,12 @@ const closeModal = (button, popup) => {
 // };
 
 export {openModal, closeModal};
+/*
+var el = document.getElementById('div');
+
+var handler = function(event) {
+    alert(111);
+    el.removeEventListener('click', handler);
+};
+el.addEventListener('click', handler);
+*/
