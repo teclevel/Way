@@ -1,5 +1,5 @@
 import './tab.js';
-import './buy.js';
+import './modal.js';
 
 const pageHeader = document.querySelector('.header');
 const toggleMenu = document.querySelector('.header__toggle-menu');
@@ -61,4 +61,13 @@ for (let item of linkItemMenu) {
 //       localStorage.setItem('user-name', userTel.value);
 //       }
 //     }
+// // });
+// const isEscEvent = (evt) => {
+//   return evt.key === 'Escape' || evt.key === 'Esc';
+// };
+
+// document.addEventListener('keydown', (e) =>{
+//   if (e.code == 'Escape' || e.code == 'Esc') {
+//     console.log('esc');
+//   }
 // });

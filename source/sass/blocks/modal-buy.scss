@@ -1,29 +1,31 @@
+// .modal-buy {
+//   width: 100%;
+//   height: 100%;
+//   position: fixed;
+//   top: 0;
+//   background-color: $black-05;
+
+
+//   @media (max-width: $mobile-width) {
+//     display: none;
+//     overflow: scroll;
+//   }
+// }
+
 .modal-buy {
-  width: 100%;
+  font-weight: 400;
+  width: 728px;
+  max-width: 100%;
+  height: 444px;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   margin: auto;
-  background-color: $black-05;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-
-  @media (max-width: $mobile-width) {
-    display: none;
-  }
-}
-
-.modal-buy__wrapper {
-  font-weight: 400;
-  width: 728px;
-  max-width: 100%;
-  height: 444px;
   background-image: url("../img/modal-image.jpg");
   background-repeat: no-repeat;
+  z-index: 10;
 }
 
 .modal-buy__form {
