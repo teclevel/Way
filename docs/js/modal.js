@@ -1,4 +1,5 @@
-import {openModal, closeModal} from './overlay.js';
+
+import {showOverlay, closeOverlay} from './overlay.js'
 
 const buttonsBuy = document.querySelectorAll('.button-buy');
 const popupBuy = document.querySelector('.modal-buy');
@@ -6,34 +7,32 @@ const buttonClosePopupBuy = popupBuy.querySelector('.modal-buy__button-close');
 
 
 for (const button of buttonsBuy) {
-  openModal(button, popupBuy);
+  button.addEventListener('click', onModalOpen)
 }
 
-closeModal(buttonClosePopupBuy, popupBuy);
-
-// window.addEventListener('keydown', (evt) => {
-//   if (evt.keyCode === 27) {
-//     closeModal(buttonClosePopupBuy, popupBuy);
-//   }
-// });
+buttonClosePopupBuy.addEventListener('click', onModalClose);
 
 
-/*
-const onPopupErrorEsc = (evt) => {
-  if (isEscEvent(evt)){
-    closePopupError();
+function isEscEvent(evt) {
+  return evt.code === 'Escape' || evt.code === 'Esc';
+};
+
+function onModalEsc(evt) {
+  if (isEscEvent(evt)) {
+    onModalClose();
   }
 };
 
-const openPopupError = () => {
-  popupError.classList.remove('hidden');
-  buttonSubmit.toggleAttribute('disabled', true);
-  document.addEventListener('keydown', onPopupErrorEsc);
+function onModalOpen() {
+  popupBuy.classList.remove('visually-hidden');
+  document.querySelector('body').style.overflow = 'hidden';
+  showOverlay();
+  document.addEventListener('keydown', onModalEsc);
 };
 
-const closePopupError = () => {
-  popupError.classList.add('hidden');
-  buttonSubmit.toggleAttribute('disabled', false);
-  document.removeEventListener('keydown', onPopupErrorEsc);
+function onModalClose() {
+  popupBuy.classList.add('visually-hidden');
+  document.querySelector('body').style.overflow = '';
+  closeOverlay();
+  document.removeEventListener('keydown', onModalEsc);
 };
-*/
