@@ -1,5 +1,5 @@
 
-import {showOverlay, closeOverlay} from './overlay.js'
+import {showOverlay, closeOverlay, overlay} from './overlay.js'
 
 const buttonsBuy = document.querySelectorAll('.button-buy');
 const popupBuy = document.querySelector('.modal-buy');
@@ -23,11 +23,22 @@ function onModalEsc(evt) {
   }
 };
 
+
 function onModalOpen() {
   popupBuy.classList.remove('visually-hidden');
   document.querySelector('body').style.overflow = 'hidden';
   showOverlay();
+  overlay.addEventListener('click', onModalClose);
   document.addEventListener('keydown', onModalEsc);
+
+
+  const html = document.querySelector('html');
+  const body = document.querySelector('body');
+  const marginSize = window.innerWidth - body.clientWidth;
+
+  if (marginSize) {
+    html.style.marginRight = marginSize + 'px';
+  }
 };
 
 function onModalClose() {
@@ -35,4 +46,5 @@ function onModalClose() {
   document.querySelector('body').style.overflow = '';
   closeOverlay();
   document.removeEventListener('keydown', onModalEsc);
+  html.style.marginRight = '';
 };

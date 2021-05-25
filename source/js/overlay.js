@@ -18,4 +18,4 @@ function closeOverlay () {
   overlay.remove();
 };
 
-export {showOverlay, closeOverlay}
+export {showOverlay, closeOverlay, overlay}
