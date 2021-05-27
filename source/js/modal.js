@@ -4,7 +4,11 @@ import {showOverlay, closeOverlay, overlay} from './overlay.js'
 const buttonsBuy = document.querySelectorAll('.button-buy');
 const popupBuy = document.querySelector('.modal-buy');
 const elementsPopupBuy = popupBuy.querySelectorAll('input, button');
-console.log(elementsPopupBuy);
+
+
+const buttonClose = popupBuy.querySelector('button[type="button"]');
+
+
 
 const buttonClosePopupBuy = popupBuy.querySelector('.modal-buy__button-close');
 const html = document.querySelector('html');
@@ -32,11 +36,34 @@ function onModalEsc(evt) {
   }
 };
 
-// function onModalTab(evt) {
-//   if (evt.keyCode === 9) {
-//     console.log('tab');
-//   }
-// };
+// function onModalTab() {
+
+
+
+
+
+
+function onModalTab() {
+
+    const onFocus = window.addEventListener('focusin', (event) => {
+      if (buttonClose == event.target) {
+        console.log('focus');
+        // popupBuy.querySelector('input[type="tel"]').focus();
+      }
+    })
+
+
+    const onTab = document.addEventListener('keydown', (evt) => {
+      if (evt.keyCode === 9) {
+        console.log('tab');
+      }
+    });
+
+    if (onFocus && onTab){
+      popupBuy.querySelector('input[type="tel"]').focus();
+      console.log('focuIN')
+    }
+};
 
 
 function onModalOpen() {
@@ -50,21 +77,11 @@ function onModalOpen() {
     html.style.marginRight = marginSize + 'px';
   }
 
-  // for (const tab of tabs){
-  //     tab.setAttribute('tabIndex', '-1');
-  //   }
-
-  // for (let i = 0;  i <= elementsPopupBuy.length; i++) {
-  //   elementsPopupBuy[i].setAttribute('tabIndex', i+1)
-  // }
-
-  // for (const tab of elementsPopupBuy){
-  //   tab.setAttribute('tabIndex', '0');
-  // }
   popupBuy.querySelector('input[type="tel"]').focus();
 
+  document.addEventListener('keydown', onModalTab);
+ };
 
-};
 
 function onModalClose() {
   popupBuy.classList.add('visually-hidden');
