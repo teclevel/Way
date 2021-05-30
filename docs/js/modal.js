@@ -3,25 +3,18 @@ import {showOverlay, closeOverlay, overlay} from './overlay.js'
 
 const buttonsBuy = document.querySelectorAll('.button-buy');
 const popupBuy = document.querySelector('.modal-buy');
-const elementsPopupBuy = popupBuy.querySelectorAll('input, button');
-
-
-const buttonClose = popupBuy.querySelector('button[type="button"]');
-
-
-
+const elementsPopupBuy = Array.from(popupBuy.querySelectorAll('input, button'));
 const buttonClosePopupBuy = popupBuy.querySelector('.modal-buy__button-close');
 const html = document.querySelector('html');
 const body = document.querySelector('body');
-const tabs = body.querySelectorAll('*');
-
-const marginSize = html.offsetWidth - body.clientWidth;
+const marginSize = window.innerWidth - html.clientWidth;
 
 
 
 for (const button of buttonsBuy) {
   button.addEventListener('click', onModalOpen)
 }
+
 
 buttonClosePopupBuy.addEventListener('click', onModalClose);
 
@@ -30,39 +23,33 @@ function isEscEvent(evt) {
   return evt.code === 'Escape' || evt.code === 'Esc';
 };
 
+
+function isTabEvent (evt) {
+  return evt.code === 'Tab'
+}
+
+
 function onModalEsc(evt) {
   if (isEscEvent(evt)) {
     onModalClose();
   }
 };
 
-// function onModalTab() {
 
+function onModalTab(evt) {
+  if (isTabEvent(evt)) {
+    const focusedItemIndex = elementsPopupBuy.indexOf(document.activeElement)
 
-
-
-
-
-function onModalTab() {
-
-    const onFocus = window.addEventListener('focusin', (event) => {
-      if (buttonClose == event.target) {
-        console.log('focus');
-        // popupBuy.querySelector('input[type="tel"]').focus();
-      }
-    })
-
-
-    const onTab = document.addEventListener('keydown', (evt) => {
-      if (evt.keyCode === 9) {
-        console.log('tab');
-      }
-    });
-
-    if (onFocus && onTab){
-      popupBuy.querySelector('input[type="tel"]').focus();
-      console.log('focuIN')
+    if (evt.shiftKey && focusedItemIndex === 0) {
+      elementsPopupBuy[elementsPopupBuy.length - 1].focus();
+      evt.preventDefault();
     }
+
+    if (!evt.shiftKey && focusedItemIndex === elementsPopupBuy.length - 1) {
+      elementsPopupBuy[0].focus();
+      evt.preventDefault();
+    }
+  }
 };
 
 
@@ -77,10 +64,9 @@ function onModalOpen() {
     html.style.marginRight = marginSize + 'px';
   }
 
-  popupBuy.querySelector('input[type="tel"]').focus();
-
+  elementsPopupBuy[0].focus();
   document.addEventListener('keydown', onModalTab);
- };
+};
 
 
 function onModalClose() {
@@ -89,27 +75,7 @@ function onModalClose() {
   closeOverlay();
   document.removeEventListener('keydown', onModalEsc);
   html.style.marginRight = '';
+  console.log('')
 
-  for (const tab of tabs){
-    tab.removeAttribute('tabIndex');
-  }
-
-  // for (const tab of elementsPopupBuy){
-  //   tab.setAttribute('tabIndex','-1');
-  // }
   document.removeEventListener('keydown', onModalTab);
 };
-
-    // function uniKeyCode(event, element) {
-    //   const key = event.keyCode;
-    //   if (key == 9) {
-    //     console.log("Unicode KEY code: " + key + " TAB Element: " + element);
-    //     document.getElementById(element).focus();
-    //     return false;
-    //   }
-    // }
-
-// <body>
-//   <input id="input" onkeydown="return(uniKeyCode(event,'textarea')); "><br />
-//   <textarea id="textarea" onkeydown="return(uniKeyCode(event,'input')); "></textarea><br />
-// </body>
