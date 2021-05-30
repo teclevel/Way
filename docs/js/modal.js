@@ -18,22 +18,20 @@ for (const button of buttonsBuy) {
 buttonClosePopupBuy.addEventListener('click', onModalClose);
 
 
-function isEscEvent(evt) {
-  return evt.code === 'Escape' || evt.code === 'Esc';
-};
+// function isEscEvent(evt) {
+//   return evt.code == 'Escape' || evt.code == 'Esc';
+// };
 
 
-function onModalEsc(evt) {
-  if (isEscEvent(evt)) {
-    onModalClose();
-  }
-};
+// function isTabEvent(evt) {
+//   return evt.code == 'Tab'
+// };
 
 
-function onModalTab(evt) {
-  const focusedItemIndex = elementsPopupBuy.indexOf(document.activeElement)
+function onModalKeydown(evt) {
+    const focusedItemIndex = elementsPopupBuy.indexOf(document.activeElement)
 
-  if (evt.shiftKey && focusedItemIndex === 0) {
+   if (evt.shiftKey && (focusedItemIndex === 0 || focusedItemIndex === -1)) {
     elementsPopupBuy[elementsPopupBuy.length - 1].focus();
     evt.preventDefault();
   }
@@ -41,6 +39,10 @@ function onModalTab(evt) {
   if (!evt.shiftKey && focusedItemIndex === elementsPopupBuy.length - 1) {
     elementsPopupBuy[0].focus();
     evt.preventDefault();
+  }
+
+  if (evt.code == 'Escape' || evt.code == 'Esc') {
+    onModalClose();
   }
 };
 
@@ -50,14 +52,13 @@ function onModalOpen() {
   document.querySelector('body').style.overflow = 'hidden';
   showOverlay();
   overlay.addEventListener('click', onModalClose);
-  document.addEventListener('keydown', onModalEsc);
+  document.addEventListener('keydown', onModalKeydown);
 
   if (marginSize) {
     html.style.marginRight = marginSize + 'px';
   }
 
   elementsPopupBuy[0].focus();
-  document.addEventListener('keydown', onModalTab);
 };
 
 
@@ -65,8 +66,6 @@ function onModalClose() {
   popupBuy.classList.add('visually-hidden');
   document.querySelector('body').style.overflow = '';
   closeOverlay();
-  document.removeEventListener('keydown', onModalEsc);
+  document.removeEventListener('keydown', onModalKeydown);
   html.style.marginRight = '';
-
-  document.removeEventListener('keydown', onModalTab);
 };
