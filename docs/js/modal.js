@@ -14,18 +14,7 @@ for (const button of buttonsBuy) {
   button.addEventListener('click', onModalOpen)
 };
 
-
 buttonClosePopupBuy.addEventListener('click', onModalClose);
-
-
-// function isEscEvent(evt) {
-//   return evt.code == 'Escape' || evt.code == 'Esc';
-// };
-
-
-// function isTabEvent(evt) {
-//   return evt.code == 'Tab'
-// };
 
 
 function onModalKeydown(evt) {
