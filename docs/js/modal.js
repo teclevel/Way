@@ -15,6 +15,7 @@ for (const button of buttonsBuy) {
 };
 
 buttonClosePopupBuy.addEventListener('click', onModalClose);
+buttonClosePopupBuy.addEventListener('keydown', onModalButtonClose);
 
 
 function onModalKeydown(evt) {
@@ -34,6 +35,13 @@ function onModalKeydown(evt) {
     onModalClose();
   }
 };
+
+
+function onModalButtonClose(evt) {
+  if (evt.code == 'Enter'|| evt.code == 'Space') {
+    onModalClose();
+  }
+}
 
 
 function onModalOpen() {
